@@ -90,29 +90,45 @@ class IndexController extends Controller {
 		return view('admin.admin')->with(["data" => $data]);
 	}
 
-	public function post_admin_save_h1(){
-		$linkText = Request::input('inputText');
-		$linkSubText = Request::input('inputSubText');
-		$lt = Content::firstOrCreate(["name" => "h1Text"]);
-		$lt->content = $linkText;
-		$lt->save();
+	public function post_admin_save_partners(){
+		$subHeader = Request::input('inputSubHeader');
+		$sh = Content::firstOrCreate(["name" => "partnerSubHeader"]);
+		$sh->content = $subHeader;
+		$sh->save();
 
-		$lst = Content::firstOrCreate(["name" => "h1SubText"]);
-		$lst->content = $linkSubText;
-		$lst->save();
+		$companyFormationText = Request::input('inputCompanyFormationText');
+		$cft = Content::firstOrCreate(["name" => "companyFormationText"]);
+		$cft->content = $companyFormationText;
+		$cft->save();
+
+		$programSatText = Request::input('inputProgramSatText');
+		$pst = Content::firstOrCreate(["name" => "programSatText"]);
+		$pst->content = $programSatText;
+		$pst->save();
+
+		$ecoSystemGrowth = Request::input('inputEcosystemGrowthText');
+		$esg = Content::firstOrCreate(["name" => "ecoSystemGrowthText"]);
+		$esg->content = $ecoSystemGrowth;
+		$esg->save();
+
 		return redirect()->route("admin")->with("message", "Changes saved successfully.");
 	}
-	public function post_admin_save_h2(){
-		$linkText = Request::input('inputText');
-		$linkSubText = Request::input('inputSubText');
+	public function post_admin_save_clients(){
+		$teamText = Request::input('inputTeamText');
+		$tt = Content::firstOrCreate(["name" => "clientsTeamText"]);
+		$tt->content = $teamText;
+		$tt->save();
 
-		$lt = Content::firstOrCreate(["name" => "h2Text"]);
-		$lt->content = $linkText;
-		$lt->save();
+		$organizationsText = Request::input('inputOrganizationsText');
+		$ot = Content::firstOrCreate(["name" => "clientsOrgText"]);
+		$ot->content = $organizationsText;
+		$ot->save();
 
-		$lst = Content::firstOrCreate(["name" => "h2SubText"]);
-		$lst->content = $linkSubText;
-		$lst->save();
+		$ecoSystemsText = Request::input('inputEcosystemsText');
+		$est = Content::firstOrCreate(["name" => "clientEcosystemsText"]);
+		$est->content = $ecoSystemsText;
+		$est->save();
+
 		return redirect()->route("admin")->with("message", "Changes saved successfully.");
 
 	}

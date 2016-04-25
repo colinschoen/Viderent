@@ -1,78 +1,4 @@
 $(document).ready(function () {
-
-    /***************** Video popups ******************/
-    $('.magnific').magnificPopup({
-    type:'image',
-    removalDelay: 300,
-    mainClass: 'mfp-fade'
-  });
-
-  $('.magnific-youtube').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 300,
-    preloader: false,
-    fixedContentPos: false,
-    items: {
-         src: 'https://www.youtube.com/watch?v=OuIwRg8BkqY'
-       },
-   iframe: {
-         markup: '<div class="mfp-iframe-scaler">'+
-                 '<div class="mfp-close"></div>'+
-                 '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
-                 '</div>',
-         patterns: {
-             youtube: {
-                 index: 'youtube.com/',
-                 id: 'v=',
-                 src: 'https://www.youtube.com/embed/%id%?autoplay=1'
-             }
-          },
-          srcAction: 'iframe_src',
-      }
-  });
-
-$('.magnific-all').each(function() {
-  var $container = $(this);
-  var $imageLinks = $container.find('.item');
-
-  var items = [];
-  $imageLinks.each(function() {
-    var $item = $(this);
-    var type = 'image';
-    if ($item.hasClass('magnific-youtube')) {
-      type = 'iframe';
-    }
-    var magItem = {
-      src: $item.attr('href'),
-      type: type
-    };
-    magItem.title = $item.data('title');
-    items.push(magItem);
-    });
-
-  $imageLinks.magnificPopup({
-    mainClass: 'mfp-fade',
-    items: items,
-    gallery:{
-        enabled:true,
-        tPrev: $(this).data('prev-text'),
-        tNext: $(this).data('next-text')
-    },
-    type: 'image',
-    callbacks: {
-      beforeOpen: function() {
-        var index = $imageLinks.index(this.st.el);
-        if (-1 !== index) {
-          this.goTo(index);
-        }
-      }
-    }
-  });
-});
-
-
     /***************** Navbar-Collapse ******************/
 
     $(window).scroll(function () {
@@ -106,12 +32,13 @@ $('.magnific-all').each(function() {
 
     $("#owl-hero").owlCarousel({
 
-        navigation: false, // Show next and prev buttons
+        navigation: true, // Show next and prev buttons
         slideSpeed: 300,
-        paginationSpeed: 200,
+        paginationSpeed: 400,
         singleItem: true,
-        transitionStyle: "fade",
-        autoPlay: true,
+        transitionStyle: "fadeUp",
+        autoPlay: false,
+        pagination: false,
         navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
 
     });
@@ -131,11 +58,33 @@ $('.magnific-all').each(function() {
     $("#owl-testi").owlCarousel({
 
         navigation: false, // Show next and prev buttons
-        paginationSpeed: 700,
+        paginationSpeed: 400,
+        pagination: false,
         singleItem: true,
-        transitionStyle: "fadeUp",
+        transitionStyle: "backSlide",
         autoPlay: true
 
+    });
+    /***************** Countdown ******************/
+
+    $('#fun-facts').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
+        if (visible) {
+            $(this).find('.timer').each(function () {
+                var $this = $(this);
+                $({
+                    Counter: 0
+                }).animate({
+                    Counter: $this.text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function () {
+                        $this.text(Math.ceil(this.Counter));
+                    }
+                });
+            });
+            $(this).unbind('inview');
+        }
     });
 
     /***************** Wow.js ******************/

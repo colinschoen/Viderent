@@ -6,7 +6,7 @@
 (function (factory) {
   if (typeof define == 'function' && define.amd) {
     // AMD
-    define(['jquery.inview'], factory);
+    define(['jquery'], factory);
   } else if (typeof exports === 'object') {
     // Node, CommonJS
     module.exports = factory(require('jquery'));

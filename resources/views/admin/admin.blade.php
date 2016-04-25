@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">PYM Admin</a>
+            <a class="navbar-brand" href="#">Viderent Admin</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -50,130 +50,41 @@
     <div class="row" style="margin-top: 50px;">
         <div class="col-lg-3">
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a data-toggle="tab" href="#htext1">Header Slide 1</a></li>
-                <li class=""><a data-toggle="tab" href="#htext2">Header Slide 2</a></li>
-                <li class=""><a data-toggle="tab" href="#htext3">Header Slide 3</a></li>
-                <li class=""><a data-toggle="tab" href="#btext">Breakout Text</a></li>
-                <li class=""><a data-toggle="tab" href="#services">Services</a></li>
-                <li class=""><a data-toggle="tab" href="#team">Team</a></li>
-                <li class=""><a data-toggle="tab" href="#testimonials">Testimonials</a></li>
+                <li class="active"><a data-toggle="tab" href="#partners">Partners</a></li>
+                <li class=""><a data-toggle="tab" href="#clients">Clients</a></li>
             </ul>
         </div>
         <div class="col-lg-9">
             <div class="tab-content">
-                <div class="tab-pane active well" id="htext1">
-                    <form action="{{ route("adminsaveh1") }}" method="POST">
+                <div class="tab-pane active well" id="partners">
+                    <form action="{{ route("adminsavepartners") }}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Header</label>
-                        <input name="inputText" value="{{{ $data["h1Text"]  }}}" type="text" class="form-control" placeholder="Header text" />
+                        <label>SubHeader</label>
+                        <input name="inputSubHeader" value="{{{ $data["partnerSubHeader"]  }}}" type="text" class="form-control" placeholder="SubHeader text" />
                         <br />
-                        <label>Subheading</label>
-                        <input name="inputSubText" value="{{{ $data["h1SubText"] }}}" type="text" class="form-control" placeholder="Subheader text" />
+                        <label>Company Formation Text</label>
+                        <input name="inputCompanyFormationText" value="{{{ $data["companyFormationText"] }}}" type="text" class="form-control" placeholder="Company Formation text" />
+                        <br />
+                        <label>Program Satisfaction Text</label>
+                        <input name="inputProgramSatText" value="{{{ $data["programSatText"] }}}" type="text" class="form-control" placeholder="Program Satisfaction text" />
+                        <br />
+                        <label>Ecosystem Growth</label>
+                        <input name="inputEcosystemGrowthText" value="{{{ $data["ecoSystemGrowthText"] }}}" type="text" class="form-control" placeholder="Ecosystem Growth text" />
                         <br />
                         <button class="btn btn-success">Save</button>
                     </form>
                 </div>
-                <div class="tab-pane well" id="htext2">
-                    <form action="{{ route("adminsaveh2") }}" method="POST">
+                <div class="tab-pane well" id="clients">
+                    <form action="{{ route("adminsaveclients") }}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Header</label>
-                        <input name="inputText" value="{{{ $data["h2Text"] }}}" type="text" class="form-control" placeholder="Header text" />
+                        <label>Team Text</label>
+                        <textarea class="form-control" placeholder="Teams text" name="inputTeamText">{{{ $data["clientsTeamText"] }}}</textarea>
                         <br />
-                        <label>Subheading</label>
-                        <input name="inputSubText" value="{{{ $data["h2SubText"] }}}" type="text" class="form-control" placeholder="Subheader text" />
+                        <label>Organizations Text</label>
+                        <textarea class="form-control" placeholder="Organizations text" name="inputOrganizationsText">{{{ $data["clientsOrgText"] }}}</textarea>
                         <br />
-                        <button class="btn btn-success">Save</button>
-                    </form>
-                </div>
-                <div class="tab-pane well" id="htext3">
-                    <form action="{{ route("adminsaveh3") }}" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Header</label>
-                        <input name="inputText" value="{{{ $data["h3Text"] }}}" type="text" class="form-control" placeholder="Header text" />
-                        <br />
-                        <label>Subheading</label>
-                        <input name="inputSubText" value="{{{ $data["h3SubText"] }}}" type="text" class="form-control" placeholder="Subheader text" />
-                        <br />
-                        <button class="btn btn-success">Save</button>
-                    </form>
-                </div>
-                <div class="tab-pane well" id="btext">
-                    <form action="{{ route("adminsavebtext") }}" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Breakout Header</label>
-                        <input name="inputBreakoutHeader" value="{{{ $data["breakoutHeader"] }}}" type="text" class="form-control" placeholder="Breakout Header" />
-                        <br />
-                        <label>Breakout Text</label>
-                        <textarea class="form-control" rows="4" name="inputBreakoutText" placeholder="Breakout Text">{{{ $data["breakoutText"] }}}</textarea>
-                        <br />
-                        <button class="btn btn-success">Save</button>
-                    </form>
-                </div>
-                <div class="tab-pane well" id="services">
-                    <form action="{{ route("adminsaveservices") }}" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Service 1</label>
-                        <input name="inputService1" value="{{{ $data["service1"]  }}}" type="text" class="form-control" placeholder="Service 1" />
-                        <br />
-                        <label>Service 2</label>
-                        <input name="inputService2" value="{{{ $data["service2"]  }}}" type="text" class="form-control" placeholder="Service 2" />
-                        <br />
-                        <label>Service 3</label>
-                        <input name="inputService3" value="{{{ $data["service3"]  }}}" type="text" class="form-control" placeholder="Service 3" />
-                        <br />
-                        <label>Service 4</label>
-                        <input name="inputService4" value="{{{ $data["service4"]  }}}" type="text" class="form-control" placeholder="Service 4" />
-                        <br />
-                        <button class="btn btn-success">Save</button>
-                    </form>
-                </div>
-                <div class="tab-pane well" id="team">
-                    <form action="{{ route("adminsaveteam") }}" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Name</label>
-                        <input name="inputTeamName1" value="{{{ $data["teamName1"] }}}" type="text" class="form-control" placeholder="Name" />
-                        <br />
-                        <label>Image Link</label>
-                        <input name="inputTeamImage1" value="{{{ $data["teamImage1"] }}}" type="text" class="form-control" placeholder="Image" />
-                        <br />
-                        <label>Bio Text</label>
-                        <input name="inputTeamBioText1" value="{{{ $data["teamBioText1"] }}}" type="text" class="form-control" placeholder="Bio" />
-                        <hr />
-                        <br />
-                        <label>Name</label>
-                        <input name="inputTeamName2" value="{{{ $data["teamName2"] }}}" type="text" class="form-control" placeholder="Name" />
-                        <br />
-                        <label>Image Link</label>
-                        <input name="inputTeamImage2" value="{{{ $data["teamImage2"] }}}" type="text" class="form-control" placeholder="Image" />
-                        <br />
-                        <label>Bio Text</label>
-                        <input name="inputTeamBioText2" value="{{{ $data["teamBioText2"] }}}" type="text" class="form-control" placeholder="Bio" />
-                        <hr />
-                        <br />
-                        <label>Name</label>
-                        <input name="inputTeamName3" value="{{{ $data["teamName3"] }}}" type="text" class="form-control" placeholder="Name" />
-                        <br />
-                        <label>Image Link</label>
-                        <input name="inputTeamImage3" value="{{{ $data["teamImage3"] }}}" type="text" class="form-control" placeholder="Image" />
-                        <br />
-                        <label>Bio Text</label>
-                        <input name="inputTeamBioText3" value="{{{ $data["teamBioText3"] }}}" type="text" class="form-control" placeholder="Bio" />
-                        <hr />
-                        <br />
-                        <button class="btn btn-success">Save</button>
-                    </form>
-                </div>
-                <div class="tab-pane well" id="testimonials">
-                    <form action="{{ route("adminsavetestimonials") }}" method="POST">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <label>Testimonial 1</label>
-                        <input name="inputTestimonial1" value="{{{ $data["testimonial1"] }}}" type="text" class="form-control" placeholder="Testimonial 1" />
-                        <br />
-                        <label>Testimonial 2</label>
-                        <input name="inputTestimonial2" value="{{{ $data["testimonial2"] }}}" type="text" class="form-control" placeholder="Testimonial 2" />
-                        <br />
-                        <label>Testimonial 3</label>
-                        <input name="inputTestimonial3" value="{{{ $data["testimonial3"] }}}" type="text" class="form-control" placeholder="Testimonial 3" />
+                        <label>Ecosystems Text</label>
+                        <textarea class="form-control" placeholder="Ecosystems text" name="inputEcosystemsText">{{{ $data["clientEcosystemsText"] }}}</textarea>
                         <br />
                         <button class="btn btn-success">Save</button>
                     </form>

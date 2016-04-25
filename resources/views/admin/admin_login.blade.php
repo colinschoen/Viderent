@@ -81,7 +81,7 @@
         <div class="col-md-4 col-md-offset-4">
             <section class="login-form">
                 <form method="POST" action="{{{ route("doadminlogin") }}}" role="login">
-                    <h1>PYM Admin Login</h1>
+                    <h1>Viderent Admin Login</h1>
                     @if (Session::has('message'))
                         <div class="label label-error">{{{ Session::get('message') }}}</div>
                     @endif

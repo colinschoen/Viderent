@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="74578460-227e-4011-872d-f053a1862b91" name="viderent.colinschoen.me" url="http://viderent.colinschoen.me">
+        <fileTransfer host="viderent.colinschoen.me" port="22" rootFolder="/home/viderent.colinschoen.me" accessType="SFTP" username="colin">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

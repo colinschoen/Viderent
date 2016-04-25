@@ -20,18 +20,8 @@ Route::get('admin/hash/{string}', ["as" => "hash", "uses" => "IndexController@ge
 Route::get('admin', ["as" => "admin", "uses" => 'IndexController@get_admin', "middleware" => "auth"]);
 Route::get('admin/logout', ["as" => "doadminlogout", "uses" => 'IndexController@get_admin_logout', "middleware" => "auth"]);
 
-Route::post('admin/save/h1', ["as" => "adminsaveh1", "uses" => "IndexController@post_admin_save_h1", "middleware" => "auth"]);
-Route::post('admin/save/h2', ["as" => "adminsaveh2", "uses" => "IndexController@post_admin_save_h2", "middleware" => "auth"]);
-Route::post('admin/save/h3', ["as" => "adminsaveh3", "uses" => "IndexController@post_admin_save_h3", "middleware" => "auth"]);
-
-Route::post('admin/save/btext', ["as" => "adminsavebtext", "uses" => "IndexController@post_admin_save_btext", "middleware" => "auth"]);
-
-
-Route::post('admin/save/services', ["as" => "adminsaveservices", "uses" => "IndexController@post_admin_save_services", "middleware" => "auth"]);
-
-Route::post('admin/save/team', ["as" => "adminsaveteam", "uses" => "IndexController@post_admin_save_team", "middleware" => "auth"]);
-
-Route::post('admin/save/testimonials', ["as" => "adminsavetestimonials", "uses" => "IndexController@post_admin_save_testimonials", "middleware" => "auth"]);
+Route::post('admin/save/partners', ["as" => "adminsavepartners", "uses" => "IndexController@post_admin_save_partners", "middleware" => "auth"]);
+Route::post('admin/save/clients', ["as" => "adminsaveclients", "uses" => "IndexController@post_admin_save_clients", "middleware" => "auth"]);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
